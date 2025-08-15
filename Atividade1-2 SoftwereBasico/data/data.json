@@ -1,0 +1,72 @@
+[
+    {
+      "nome": "Amanda Ribeiro Costa",
+      "idade": 28,
+      "estado": "AM",
+      "cep": "69005-040",
+      "salarios_minimos": 2.5
+    },
+    {
+      "nome": "Bruno Alves Lima",
+      "idade": 39,
+      "estado": "PA",
+      "cep": "66010-000",
+      "salarios_minimos": 5.1
+    },
+    {
+      "nome": "Carolina Fernandes Nunes",
+      "idade": 23,
+      "estado": "MA",
+      "cep": "65010-070",
+      "salarios_minimos": 1.9
+    },
+    {
+      "nome": "Diego Sousa Castro",
+      "idade": 45,
+      "estado": "PI",
+      "cep": "64000-120",
+      "salarios_minimos": 6.7
+    },
+    {
+      "nome": "Fernanda Pereira Rodrigues",
+      "idade": 31,
+      "estado": "PB",
+      "cep": "58010-020",
+      "salarios_minimos": 3.8
+    },
+    {
+      "nome": "Gustavo Martins Silva",
+      "idade": 26,
+      "estado": "RN",
+      "cep": "59010-000",
+      "salarios_minimos": 2.2
+    },
+    {
+      "nome": "Helena Oliveira Gomes",
+      "idade": 55,
+      "estado": "AL",
+      "cep": "57020-002",
+      "salarios_minimos": 10.3
+    },
+    {
+      "nome": "Igor Nunes Carvalho",
+      "idade": 40,
+      "estado": "SE",
+      "cep": "49010-000",
+      "salarios_minimos": 5.5
+    },
+    {
+      "nome": "Larissa Castro Sousa",
+      "idade": 33,
+      "estado": "ES",
+      "cep": "29010-000",
+      "salarios_minimos": 4.0
+    },
+    {
+      "nome": "Matheus Ribeiro Pereira",
+      "idade": 21,
+      "estado": "MS",
+      "cep": "79002-230",
+      "salarios_minimos": 1.6
+    }
+  ]

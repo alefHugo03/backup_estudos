@@ -1,0 +1,69 @@
+<pessoas>
+  <pessoa>
+    <nome>Ana Clara Silva</nome>
+    <idade>32</idade>
+    <estado>MG</estado>
+    <cep>30112-000</cep>
+    <salarios_minimos>3.5</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Pedro Henrique Oliveira</nome>
+    <idade>25</idade>
+    <estado>SP</estado>
+    <cep>01310-020</cep>
+    <salarios_minimos>1.8</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Mariana Souza Costa</nome>
+    <idade>48</idade>
+    <estado>RJ</estado>
+    <cep>22021-001</cep>
+    <salarios_minimos>7.2</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Lucas Fernandes Pereira</nome>
+    <idade>29</idade>
+    <estado>RS</estado>
+    <cep>90010-270</cep>
+    <salarios_minimos>2.1</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Beatriz Rodrigues Alves</nome>
+    <idade>37</idade>
+    <estado>BA</estado>
+    <cep>40015-000</cep>
+    <salarios_minimos>4.9</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Gabriel Lima Carvalho</nome>
+    <idade>22</idade>
+    <estado>PR</estado>
+    <cep>80010-180</cep>
+    <salarios_minimos>1.5</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Isabela Martins Gomes</nome>
+    <idade>51</idade>
+    <estado>CE</estado>
+    <cep>60115-280</cep>
+    <salarios_minimos>9.1</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Rafael Nunes Sousa</nome>
+    <idade>41</idade>
+    <estado>PE</estado>
+    <cep>50030-230</cep>
+    <salarios_minimos>5.8</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Juliana Castro Oliveira</nome>
+    <idade>27</idade>
+    <estado>GO</estado>
+    <cep>74003-010</cep>
+    <salarios_minimos>2.8</salarios_minimos>
+  </pessoa>
+  <pessoa>
+    <nome>Thiago Santos Pereira</nome>
+    <idade>35</idade>
+  </pessoa>
+</pessoas>
