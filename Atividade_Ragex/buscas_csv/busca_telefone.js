@@ -7,6 +7,10 @@ const regexTelefone = /\(\d+\)\s\d+-\d+/g
 const matchTelefone = banco.match(regexTelefone);
 console.log(matchTelefone);
 
+const patterCel = /\(\d{2}\)\s\d{4,5}-\d{4}/g
+const matchCelular = banco.match(patterCel);
+console.log(matchCelular);
+
 /* metachards
 g= geral
 \ =barra de escapamento
