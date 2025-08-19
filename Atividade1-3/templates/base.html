@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Conecta Investe{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {# Referência ao seu arquivo style.css local na pasta static. É crucial que este arquivo defina as cores para a classe 'dark-theme' e sobrescreva as cores do Bootstrap se necessário. #}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+{# Aplica a classe 'dark-theme' ao body quando o tema é escuro. O 'style.css' deve conter as regras para esta classe. #}
+<body class="{{ 'dark-theme' if current_theme == 'dark' else '' }}">
+    {# A barra de navegação alterna entre 'navbar-dark' e 'navbar-light' e 'bg-dark' e 'bg-light' do Bootstrap #}
+    <nav class="navbar navbar-expand-lg navbar-{{ 'dark' if current_theme == 'dark' else 'light' }} bg-{{ 'dark' if current_theme == 'dark' else 'light' }} border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">Conecta Investe</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    {% if user_is_logged_in %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('my_profile_view') }}">Meu Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('create_post') }}">Criar Post</a>
+                        </li>
+                        {% if user_type_in_session == 'empreendedor' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('feed_sponsors') }}">Buscar Patrocinadores</a>
+                            </li>
+                        {% elif user_type_in_session == 'sponsor' %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('feed_lojas') }}">Buscar Negócios</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('view_notifications') }}">
+                                Notificações
+                                {% if unread_notifications_count > 0 %}
+                                    <span class="badge bg-danger rounded-pill ms-1">{{ unread_notifications_count }}</span>
+                                {% endif %}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('settings') }}">Configurações</a>
+                        </li>
+                        {# NOVO: Link de Sair direto na barra de navegação principal para maior visibilidade #}
+                        <li class="nav-item d-lg-none"> {# Esconde em telas grandes se preferir apenas no dropdown #}
+                            <a class="nav-link text-danger" href="{{ url_for('logout') }}">Sair</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('register') }}">Cadastrar</a>
+                        </li>
+                    {% endif %}
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    {% if user_is_logged_in %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="{{ profile_image_url_layout }}" alt="Perfil" class="rounded-circle me-2" style="width: 30px; height: 30px; object-fit: cover;">
+                                <span class="navbar-text d-none d-sm-inline">
+                                    {{ user_email_in_session }}
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownUser">
+                                <li><p class="dropdown-header fs-6">Logado como:<br><em>{{ user_email_in_session }}</em><br>({{ user_type_in_session | capitalize }})</p></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ url_for('my_profile_view') }}">Ver Meu Perfil</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('settings') }}">Configurações</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                {# Link de Sair no dropdown (já existia) #}
+                                <li><a class="dropdown-item text-danger" href="{{ url_for('logout') }}">Sair</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="container my-4">
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    <footer class="text-center py-3 mt-auto bg-light border-top">
+        <p class="mb-0">&copy; <span id="currentYear">{{ current_year }}</span> Conecta Investe - Todos os direitos reservados.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVpZVoxMfooAoIfWwEAwWzQjBFLyC6jIfjhGZl3L2Fp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkmXLRVf5bXPNx9Fm4V7QkR4FqF+dDCD4tXh/4v/4rN3zXfM/0+4W2004fW" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Cadastro - Conecta Investe{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        {# Adicionada a classe customizada 'auth-card' #}
+        <div class="card shadow-sm auth-card">
+            <div class="card-body p-4">
+                <h2 class="card-title text-center mb-4">Cadastre-se</h2>
+                <p class="text-center text-muted">Escolha seu tipo de perfil e preencha seus dados para começar.</p>
+                <p class="text-center text-muted"><em>A senha deve ter no mínimo {{ min_password_length }} caracteres.</em></p>
+                <form method="POST" action="{{ url_for('register') }}">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha:</label>
+                        <input type="password" class="form-control" id="password" name="password" required minlength="{{ min_password_length }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="confirm_password" class="form-label">Confirme a Senha:</label>
+                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required minlength="{{ min_password_length }}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="user_type" class="form-label">Eu sou:</label>
+                        <select class="form-select" id="user_type" name="user_type" required>
+                            <option value="" disabled selected>Selecione seu tipo de perfil</option>
+                            <option value="empreendedor">Empreendedor/Loja</option>
+                            <option value="sponsor">Sponsor/Patrocinador</option>
+                        </select>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                </form>
+                <p class="text-center mt-3">
+                    Já tem uma conta? <a href="{{ url_for('login') }}">Faça login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

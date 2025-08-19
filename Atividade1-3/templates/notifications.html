@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Minhas Notificações - Conecta Investe{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Minhas Notificações</h2>
+    {% if notifications %}
+        <div class="list-group shadow-sm">
+            {% for notification in notifications %}
+                {# Ajustado as classes: removido list-group-item-light.
+                   Se não lida, adiciona list-group-item-info e fw-bold (já definido no style.css).
+                   Se lida, usa apenas list-group-item (que será surface-color). #}
+                <div class="list-group-item list-group-item-action mb-2 rounded border {% if not notification.read %}list-group-item-info{% endif %}">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <p class="mb-1 {% if not notification.read %}fw-bold{% endif %}"> {# fw-bold movido para o p para aplicar ao texto #}
+                            {% if notification.type == 'interest' %}
+                                <i class="bi bi-star-fill text-warning me-2"></i>
+                            {% elif notification.type == 'new_post_from_followed' %}
+                                <i class="bi bi-megaphone-fill text-info me-2"></i>
+                            {% else %}
+                                <i class="bi bi-info-circle-fill text-primary me-2"></i>
+                            {% endif %}
+                            {{ notification.message }}
+                        </p>
+                        <small class="text-muted">{{ notification.created_at.strftime('%d/%m/%Y %H:%M') }}</small>
+                    </div>
+                    {% if notification.type == 'interest' %}
+                        <p class="mb-1"><small>De: <strong>{{ notification.sender_name }}</strong></small></p>
+                        {% if notification.related_profile_id %}
+                            <a href="{{ url_for('view_profile', profile_id_str=notification.related_profile_id) }}" class="btn btn-sm btn-outline-primary mt-2">Ver Perfil</a>
+                        {% endif %}
+                    {% elif notification.type == 'new_post_from_followed' %}
+                        <p class="mb-1"><small>Post de: <strong>{{ notification.sender_name }}</strong></small></p>
+                        {% if notification.related_post_id %}
+                            {# Você precisaria de uma rota para ver posts individuais se desejar. Por enquanto, pode direcionar para o perfil. #}
+                            <a href="{{ url_for('view_profile', profile_id_str=notification.sender_profile_id) }}" class="btn btn-sm btn-outline-info mt-2">Ver Perfil do Autor</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        {# Botão para marcar todas como lidas, se houver uma rota para isso #}
+        {% if notifications | length > 0 %}
+            <form action="{{ url_for('mark_all_notifications_read') }}" method="POST" class="text-center mt-4">
+                <button type="submit" class="btn btn-secondary">Marcar todas como lidas</button>
+            </form>
+        {% endif %}
+    {% else %}
+        <div class="alert alert-info text-center">
+            <p class="mb-0">Você não tem novas notificações.</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
