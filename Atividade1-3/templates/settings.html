@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Configurações - Conecta Investe{% endblock %}
+
+{% block content %}
+{# Adicionada a classe customizada 'settings-card' #}
+<div class="card shadow-sm settings-card">
+    <div class="card-body p-4">
+        <h2 class="card-title mb-4">Configurações da Conta</h2>
+
+        <div class="settings-section mb-4 pb-3 border-bottom">
+            <h3 class="h5">Preferências de Tema</h3>
+            <form method="POST" action="{{ url_for('settings') }}">
+                <input type="hidden" name="action" value="change_theme">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="theme_light" name="theme_preference" value="light" {% if selected_theme == 'light' %}checked{% endif %}>
+                    <label class="form-check-label" for="theme_light">Modo Claro</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" id="theme_dark" name="theme_preference" value="dark" {% if selected_theme == 'dark' %}checked{% endif %}>
+                    <label class="form-check-label" for="theme_dark">Modo Escuro</label>
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-sm btn-primary">Salvar Tema</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="settings-section mb-4 pb-3 border-bottom">
+            <h3 class="h5">Alterar Senha</h3>
+            <p class="text-muted"><em>A nova senha deve ter no mínimo {{ min_password_length }} caracteres.</em></p>
+            <form method="POST" action="{{ url_for('settings') }}">
+                <input type="hidden" name="action" value="change_password">
+                <div class="mb-2">
+                    <label for="current_password" class="form-label">Senha Atual:</label>
+                    <input type="password" class="form-control form-control-sm" id="current_password" name="current_password" required>
+                </div>
+                <div class="mb-2">
+                    <label for="new_password" class="form-label">Nova Senha:</label>
+                    <input type="password" class="form-control form-control-sm" id="new_password" name="new_password" required minlength="{{ min_password_length }}">
+                </div>
+                <div class="mb-2">
+                    <label for="confirm_new_password" class="form-label">Confirmar Nova Senha:</label>
+                    <input type="password" class="form-control form-control-sm" id="confirm_new_password" name="confirm_new_password" required minlength="{{ min_password_length }}">
+                </div>
+                <div class="mt-3">
+                    <button type="submit" class="btn btn-sm btn-primary">Alterar Senha</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="settings-section">
+            <h3 class="h5">Informações da Conta</h3>
+            <p><strong>Email de Login:</strong> {{ user_email }}</p>
+            <p class="text-muted"><em>Para alterar outras informações do perfil, como nome e contato, edite seu perfil.</em></p>
+            <a href="{{ url_for('my_profile_view') }}" class="btn btn-sm btn-outline-secondary">Ir para Meu Perfil</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

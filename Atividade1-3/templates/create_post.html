@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Criar Novo Post - Conecta Investe{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h2 class="card-title text-center mb-4">Criar Novo Post</h2>
+                <p class="text-center text-muted">Compartilhe suas ideias, novidades ou projetos com a comunidade.</p>
+                <form method="POST" action="{{ url_for('create_post') }}" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="text_content" class="form-label">Conteúdo do Post (texto):</label>
+                        <textarea class="form-control" id="text_content" name="text_content" rows="5" placeholder="O que você está pensando?"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="post_image" class="form-label">Imagem para o Post (opcional):</label>
+                        <input type="file" class="form-control" id="post_image" name="post_image" accept="image/png, image/jpeg, image/gif">
+                        <small class="form-text text-muted">Formatos permitidos: PNG, JPG, GIF.</small>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                        <a href="{{ url_for('home') }}" class="btn btn-outline-secondary me-md-2">Cancelar</a>
+                        <button type="submit" class="btn btn-primary">Publicar Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

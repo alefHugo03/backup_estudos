@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Feed de Sponsors - Conecta Investe{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Feed de Sponsors e Patrocinadores</h2>
+<p class="text-muted">Descubra sponsors e patrocínadores disponíveis na plataforma.</p>
+
+{% if sponsors %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"> {# Usando grid responsivo do Bootstrap #}
+        {% for sponsor in sponsors %}
+        <div class="col">
+            <div class="card h-100 shadow-sm"> {# Usando card do Bootstrap #}
+                <div class="card-header text-center p-3"> {# card-header para o topo do card #}
+                    <img src="{{ sponsor.display_image_url or url_for('static', filename='profile_pics/default_avatar.png') }}" alt="Foto de {{ sponsor.get('nome_sponsor', 'Perfil') }}" class="rounded-circle mb-2 border" style="width: 100px; height: 100px; object-fit: cover;">
+                    <h5 class="card-title mb-0">{{ sponsor.get('nome_sponsor', 'Nome não informado') }}</h5>
+                </div>
+                <div class="card-body"> {# card-body para o conteúdo principal #}
+                    <p class="card-text"><strong>Valor de Investimento Disponível:</strong> R$ {{ sponsor.get('valor_disponivel_investimento', 'Não informado') }}</p>
+                    <p class="card-text"><strong>Nichos de Interesse:</strong> {{ sponsor.get('nichos_interesse', []) | join(', ') if sponsor.get('nichos_interesse') else 'Não informado' }}</p>
+                    <p class="card-text"><strong>Expertise Adicional:</strong> {{ sponsor.get('expertise_adicional', 'Não informado') }}</p>
+                </div>
+                <div class="card-footer bg-transparent border-top-0 text-center pb-3"> {# card-footer para o botão #}
+                    <a href="{{ url_for('view_profile', profile_id_str=sponsor['_id']) }}" class="btn btn-primary btn-sm">Ver Perfil Completo</a> {# Usando btn btn-primary #}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info text-center"> {# Usando alert-info para mensagem #}
+        Nenhum sponsor encontrado no momento.
+    </div>
+{% endif %}
+
+{% if not user_profile and session.get('user_id') %} {# Adicionado session.get('user_id') para garantir que está logado #}
+    <div class="alert alert-warning mt-4 text-center"> {# Usando alert-warning para mensagem #}
+        <p class="mb-0">
+            <a href="{{ url_for('create_edit_profile') }}" class="alert-link">Crie seu perfil de Empreendedor</a> para interagir e aproveitar todas as funcionalidades.
+        </p>
+    </div>
+{% endif %}
+
+{% endblock %}
