@@ -20,4 +20,5 @@ const aprovação = (nota1, nota2, nota3, nota4, faltas) => {
     }
     if (faltas >= 4) {
         return `aluno ${nomeEstudante} foi reprovado por ter média ${faltas}`;
+    }
 }
