@@ -1,3 +1,4 @@
+/*
 // No seu arquivo: backend/public/script.js
 
 // --- As variáveis que selecionam os elementos do HTML ---
@@ -83,3 +84,23 @@ function processarDados() {
         avisoElemento.innerHTML = "Falha na comunicação. Tente novamente.";
     });
 }
+*/
+
+const form = document.getElementById('pesquisar');
+const inputPesquisa = document.getElementById('campoPesquisa');
+
+form.addEventListener('submit', function(event) {
+  // 1. Previne o comportamento padrão do formulário (recarregar a página)
+  event.preventDefault();
+
+  // 2. Pega o valor do campo de pesquisa
+  const valorPesquisa = inputPesquisa.value;
+
+  // 3. Exibe o valor (ou faça o que precisar com ele)
+  alert('Você pesquisou por: ' + valorPesquisa);
+});
+
+const btnMenu = document.getElementById("btn-menu");
+const inputEmail = document.getElementById("email");
+const inputSenha = document.getElementById("senha");
+
