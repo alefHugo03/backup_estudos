@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    height: 80px;
+    width: 100%;
+}
+
+.header-cima{
+    display: flex;
+    align-items: center;
+}
+.empresa{
+    gap: 5px;
+    margin-left: 5%;
+}
+.pesquisa{
+    gap: 5px;
+    margin-right: 5%;
+}
+.header-baixo{
+    background-color: grey;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.caixa-menu {
+    margin: 40px auto; /* Centraliza a caixa na tela e dá um espaço do topo */
+    padding: 20px;
+    width: 500px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center;
+    gap: 15px; /* Espaço entre os campos */
+}
