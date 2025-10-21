@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Document</title>
 </head>
 <body>
@@ -38,26 +38,63 @@
     </header>
 
 
-    <div class="caixa-menu">
-        <h2>Bem Vindo!</h2>
+    <div class="caixa-menu cadastro-menu">
+        <h2>Cadastre-se aqui</h2>
         <form class="menu">
+            <div class="valor caixa-texto">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" class="valor-texto" placeholder="Digite seu nome" required>
+                <p id="avisoNome" class="aviso"></p>
+            </div>
             <div class="valor caixa-texto">
                 <label for="email">Email: </label>
                 <input type="email" name="email" class="valor-texto" id="email" placeholder="Digite seu email" required>
+                <p id="avisoEmail" class="aviso"></p>
+            </div>
+
+            
+
+
+
+            <div class="valor caixa-texto">
+                <label for="data">Data de Nascimento: </label>
+                <input type="date" name="data" id="data" class="valor-texto" placeholder="Digite sua data de nascimento" required>
+                <p id="avisoData" class="aviso"></p>
             </div>
 
             <div class="valor caixa-texto">
                 <label for="senha">Senha: </label>
                 <input type="password" name="senha" id="senha" class="valor-texto" placeholder="Digite sua senha" required>
+                <p id="avisoSenha" class="aviso"></p>
             </div>
 
+            <div class="valor caixa-texto">
+                <label for="senhaDois">Repita a senha: </label>
+                <input type="password" name="senhaDois" id="senhaDois" class="valor-texto" placeholder="Digite novamente sua senha" required>
+                <p id="avisoSenhaDois" class="aviso"></p>
+            </div>
+
+
+
+
+
             <div class="valor">
-                <button type="submit" id="btn-menu" class="btn-menu">Entrar</button>
+                <div class="interativo">
+                    <button type="reset" id="btn-menu" class="btn-menu">Limpar</button>
+                    <button type="button" id="btn-menu-criar" class="btn-menu">Criar</button>
+                </div>
                 <p id="aviso"></p>
             </div>
         </form>
     </div>
+
+    <div class="caixa-footer">
+        <footer>
+            <p>© 2024 EmpresArial. Todos os direitos reservados.</p>
+        </footer>
+    </div>
     
 </body>
-<script src="script.js"></script>
+<script src="../script.js"></script>
+<script src="../src/cadastro.js"></script>
 </html>

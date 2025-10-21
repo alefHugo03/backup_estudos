@@ -4,10 +4,26 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+:root{
+    --cor-header: rgb(18, 18, 18);
+    --cor-fundo:rgb(204, 204, 204);
+    --cor-branco-letra: rgb(255, 255, 255);
+    --cor-preto: rgb(0, 0, 0);
+    --cor-cinza: rgb(248,248,248);
+    --cor-cinza-letra: rgb(120,120,120);
+    --cor-borda: rgb(204, 204, 204);
+    --cor-hover-claro: rgb(198, 198, 198);
+    --cor-cinza-claro: rgb(220, 220, 220);
+
+}
+
+
+
 header{
-    background-color: rgb(0, 0, 0);
-    color: white;
-    height: 100px;
+    background-color: var(--cor-header);
+    color: var(--cor-branco-letra);
+    height: 115px;
     width: 100%;
     justify-content: center;
 }
@@ -24,12 +40,10 @@ header{
 }
 .nome-empresa{
     font-size: 15px;
-    color: white;
+    color: var(--cor-branco-letra);
     text-decoration: none;
 }
 .pesquisa {
-    /* display: flex;  <-- REMOVA ESTA LINHA */
-    /* align-items: center; <-- E ESTA */
     margin-right: 5%;
 }
 
@@ -40,12 +54,12 @@ header{
 }
 
 .input-pesquisa {
-    padding: 5px 10px;  /* 5px em cima/baixo, 10px nas laterais */
+    padding: 5px 10px;  
     border-radius: 5px;
-    border: 1px solid #ccc; /* Adicionei uma borda sutil para melhor visualização */
+    border: 1px solid var(--cor-fundo); 
     outline: none;
     width: 200px;
-    font-size: 14px; /* Garante consistência */
+    font-size: 14px; 
 }
 
 .btn-pesquisa {
@@ -53,13 +67,12 @@ header{
     cursor: pointer;
     opacity: 0.8;
     border-radius: 5px;
-    background-color: #f0f0f0; /* Cor de fundo para diferenciar */
+    background-color: var(--cor-cinza-letra);
     
-    /* Ponto Chave: Padding para igualar a altura do input + borda */
-    /* O input tem 5px de padding + 1px de borda = 6px. Então o botão precisa do mesmo. */
+
     padding: 6px; 
 
-    /* Bônus: Garante que o ícone SVG dentro do botão fique perfeitamente centrado */
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,8 +80,12 @@ header{
 
 .btn-pesquisa:hover{
     opacity: 1;
-    background-color: #dcdcdc; /* Escurece no hover */
+    background-color: var(--cor-hover-claro);
 }
+.btn-pesquisa:active {
+    transform: scale(0.90);
+}
+
 .input-pesquisa{
     padding: 5px;
     border-radius: 5px;
@@ -78,7 +95,7 @@ header{
 }
 .header-baixo{
     padding-top: 20px;
-    background-color: black;
+    background-color: var(--cor-header);
     height: 50%;
     display: flex;
     flex-direction: row;
@@ -86,19 +103,23 @@ header{
     flex-wrap: wrap;
 }
 
-.item-menu{
+.item-menu {
+    display: inline-block;
     padding: 10px 20px;
+    font-size: medium;
     text-align: center;
     cursor: pointer;
     text-decoration: none;
     opacity: 0.8;
-    color: black;
-    background-color: rgb(175, 145, 145);
-    background: linear-gradient(rgb(130, 119, 119), rgb(93, 90, 90)); /* Gradiente do vermelho para o azul na horizontal */
-
+    color: var(--cor-preto);
+    background: linear-gradient(rgb(130, 119, 119), rgb(93, 90, 90));
+    transition: background 0.5s ease, transform 0.1s ease;
 }
-.item-menu:hover{
+
+.item-menu:hover {
     opacity: 1;
+    background: var(--cor-hover-claro); 
+    transform: scale(0.95);
 }
 
 
@@ -108,8 +129,9 @@ body {
 
 .caixa-menu {
     margin: 40px auto;
-    margin-top: 100px;
+    margin-top: 6%;
     padding: 50px;
+    padding: auto;
     width: 350px;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -127,14 +149,24 @@ body {
     width: 100%;
 }
 
-.btn-menu{
+.btn-menu {
+    background-color: var(--cor-cinza);
     width: 100%;
     cursor: pointer;
     transition: background-color 0.3s ease;
     padding: 1%;
-    margin-top: 10px;
     font-size: 16px;
+    border: 1px solid var(--cor-cinza-claro);
 }
+
+.btn-menu:hover {
+    background-color: var(--cor-hover-claro);
+}
+
+.btn-menu:active {
+    transform: scale(0.95);
+}
+
 
 .caixa-texto{
     display: flex;
@@ -144,8 +176,64 @@ body {
 
 .valor-texto{
     padding: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--cor-borda);
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer
+}
+.valor-texto:active{
+    transform: scale(0.99);
+}
+
+.link-menu{
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+    gap: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+}
+.link-menu:hover{
+    text-decoration: underline;
+    color: var(--cor-hover-claro);
+}
+
+.caixa-footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    padding: 2%;
+    background-color: var(--cor-cinza);
+    font-size: small;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.cadastro-menu{
+    margin: 40px auto;
+    margin-top: 6%;
+    padding: 50px;
+    padding: auto;
+    width: 450px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.interativo{
+    display: flex;
+    gap: 5px;
+}
+
+.aviso-ativo{
+    background-color: var(--cor-cinza);
+    width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
 }
