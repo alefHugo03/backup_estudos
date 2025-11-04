@@ -2,10 +2,10 @@ public class Condicional {
     public static void main(String[] args) {
 
         int anoDeLancamento = 2022;
-        String nomeDoFilme = "Top Gun: Maverick";
+        // String nomeDoFilme = "Top Gun: Maverick";
 
-        double media = 8.1 + 9.8 + 7.5;
-        int classificacao = (int) (media / 3);
+        // double media = 8.1 + 9.8 + 7.5;
+        // int classificacao = (int) (media / 3);
 
         boolean incluidoNoPlano = false;
         String tipoPlano = "plus";
