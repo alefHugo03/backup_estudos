@@ -1,3 +1,7 @@
 .vs/
 
 .venv/
+
+node_modules
+
+ipaddr.js/package.json
