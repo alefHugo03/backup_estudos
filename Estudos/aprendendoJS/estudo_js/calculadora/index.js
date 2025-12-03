@@ -9,7 +9,7 @@ const leitor = createInterface({
 
 leitor.question('Digite o primeiro número\n>', (numero1) => {
 
-    leitor.question('Digite a operacao\n>', (operacao) => {
+    leitor.question('Digite a operacao:\n+ para soma\n- para subtração\n>', (operacao) => {
 
         leitor.question('Digite o segundo número\n>', (numero2) => {
             const num1 = Number(numero1)
