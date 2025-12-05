@@ -1,0 +1,8 @@
+Paragrafo 1 sem duplicadas
+Paragrafo 2 sem duplicadas
+Palavras duplicadas no parágrafo 3: uma 
+Paragrafo 4 sem duplicadas
+Paragrafo 5 sem duplicadas
+Paragrafo 6 sem duplicadas
+Palavras duplicadas no parágrafo 7: dispositivos, web, seu, conectado 
+Palavras duplicadas no parágrafo 8: cliente, uma, para 
