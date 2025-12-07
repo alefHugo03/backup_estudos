@@ -13,7 +13,7 @@
   "type": "module",
   "dependencies": {
     "dotenv": "^17.2.3",
-    "express": "^4.18.1",
+    "express": "^4.22.1",
     "mongodb": "^7.0.0",
     "mongoose": "^7.3.4",
     "nodemon": "^3.0.1"
