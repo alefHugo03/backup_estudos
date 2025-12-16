@@ -1,1 +1,3 @@
-This repository is about practices done in the classroom and studies that I continue for my learning.
+## Projetos feitos em aula
+
+Esse repositório serve para armazenar práticas feitas em sala de aula na minha faculdade de Analise e Desenvolvimento de Sistemas da Universidade de Mogi das Cruzes
