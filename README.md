@@ -1,3 +1,3 @@
-## Projetos feitos em aula
+## Projetos de estudo
 
-Esse repositório serve para armazenar práticas feitas em sala de aula na minha faculdade de Analise e Desenvolvimento de Sistemas da Universidade de Mogi das Cruzes
+Repositório onde armazeno estudos de linguagens de programação, práticas simples para entender sintaxe de cada linguagem
