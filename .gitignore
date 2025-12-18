@@ -2,8 +2,8 @@
 
 .venv/
 
-node_modules
-
-ipaddr.js/package.json
+/node_modules
 
 .env
+
+eslint.config.js
