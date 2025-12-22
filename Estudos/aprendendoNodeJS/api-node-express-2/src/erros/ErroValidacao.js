@@ -1,5 +1,7 @@
+// Importações para o projeto
 import RequisicaoIncorreta from "./RequisicaoIncorreta.js";
 
+// Classe de repetição para mensagem de erro de validação
 class ErroValidacao extends RequisicaoIncorreta {
   constructor(erro) {
     const messageError = Object.values(erro.errors)
@@ -9,4 +11,5 @@ class ErroValidacao extends RequisicaoIncorreta {
   }
 }
 
+// Exportar para aplicação
 export default ErroValidacao;

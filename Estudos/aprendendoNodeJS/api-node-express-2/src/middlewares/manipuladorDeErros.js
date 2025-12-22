@@ -1,10 +1,11 @@
+// Importar aplicações
 import mongoose from "mongoose";
 import ErroBase from "../erros/ErroBase.js";
 import RequisicaoIncorreta from "../erros/RequisicaoIncorreta.js";
 import ErroValidacao from "../erros/ErroValidacao.js";
 import NaoEncontrado from "../erros/NaoEncontrado.js";
 
-
+// Apresentação de erros em geral
 function manipularErros(erro, _req, res, _next){
   if (erro instanceof mongoose.Error.CastError) {
     new RequisicaoIncorreta().enviarResposta(res);
@@ -20,5 +21,5 @@ function manipularErros(erro, _req, res, _next){
   };
 }
 
-
+// Exportar para aplicação
 export default manipularErros;

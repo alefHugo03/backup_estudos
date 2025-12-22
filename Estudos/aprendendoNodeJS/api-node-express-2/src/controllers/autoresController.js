@@ -1,6 +1,8 @@
+// Importações para o projeto
 import NaoEncontrado from "../erros/NaoEncontrado.js";
 import autores from "../models/Autor.js";
 
+// Classe para utilidade do autor
 class AutorController {
 
   static listarAutores = async(req, res, next) => {
@@ -86,4 +88,5 @@ class AutorController {
 
 }
 
+// Exportar para aplicação
 export default AutorController;

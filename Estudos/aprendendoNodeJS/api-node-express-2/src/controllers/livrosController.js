@@ -1,8 +1,9 @@
+// Importações para o projeto
 import NaoEncontrado from "../erros/NaoEncontrado.js";
 import livros from "../models/Livro.js";
 
+// Classe para utilidade do livro
 class LivroController {
-
   static listarLivros = async (req, res, next) => {
     try {
       const livrosResultado = await livros.find()
@@ -105,4 +106,5 @@ class LivroController {
   };
 }
 
+// Exportar para aplicação
 export default LivroController;

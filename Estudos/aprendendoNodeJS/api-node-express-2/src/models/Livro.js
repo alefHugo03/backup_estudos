@@ -1,5 +1,7 @@
+// Importação para o projeto
 import mongoose from "mongoose";
 
+// Construção do modelo de Autor para como vai ser seu corpo e regras de escrita
 const livroSchema = new mongoose.Schema(
   {
     id: {type: String},
@@ -10,6 +12,8 @@ const livroSchema = new mongoose.Schema(
   },
 );
 
+// Referenciar o modelo com a entidade do MongoDB
 const livros= mongoose.model("livros", livroSchema);
 
+// Exportar para utilidade
 export default livros;

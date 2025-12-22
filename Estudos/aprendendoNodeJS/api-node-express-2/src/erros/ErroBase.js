@@ -1,3 +1,4 @@
+// Extrutura base para mensagem de erro (projeto para POO)
 class ErroBase extends Error {
   constructor(mensagem = "Erro interno do servidor", status = 500) {
     super();
@@ -13,4 +14,5 @@ class ErroBase extends Error {
   }
 }
 
+// Exportar para aplicação
 export default ErroBase;
