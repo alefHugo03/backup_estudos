@@ -24,16 +24,12 @@ public class Testando_atividades {
 
     String categoriaDescricao;
 
-    if (categoria == 'F') {
-        categoriaDescricao = "Ficção";
-    } else if (categoria == 'N') {
-        categoriaDescricao = "Não-ficção";
-    } else if (categoria == 'T') {
-        categoriaDescricao = "Tecnologia";
-    } else if (categoria == 'H') {
-        categoriaDescricao = "História";
-    } else {
-        categoriaDescricao = "Categoria inválida";
+    switch (categoria) {
+        case 'F'-> categoriaDescricao = "Ficção";
+        case 'N'-> categoriaDescricao = "Não-ficção";
+        case 'T'-> categoriaDescricao = "Tecnologia";
+        case 'H'-> categoriaDescricao = "História";
+        default-> throw new AssertionError();
     }
 
     System.out.println("Livro cadastrado: \"" + titulo + "\", de " + autor + ". Ele possui " + paginas + " páginas, custa R$" + preco + " e pertence à categoria " + categoriaDescricao + ".");

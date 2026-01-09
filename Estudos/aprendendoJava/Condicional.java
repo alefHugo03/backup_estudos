@@ -25,7 +25,5 @@ public class Condicional {
             System.out.println("Filme não incluso no plano");
 
         }
-
- 
     }
 }
