@@ -1,4 +1,4 @@
-public class Testando_atividades {
+public class TestandoAtividades {
     public static void main (String[] args) {
     /* Calculando média */
         double nota1 =  7.5;
