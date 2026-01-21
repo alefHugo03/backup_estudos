@@ -47,7 +47,7 @@ public class ControleConvidados {
 
             } while (imprimeOutro);
         }
-        scanner.close();
+
     }
     public static boolean naoExiste(String nome, String[] convidados){
         for (String convidado: convidados) {
