@@ -6,4 +6,6 @@
 
 .env
 
+.idea/
+
 eslint.config.js
