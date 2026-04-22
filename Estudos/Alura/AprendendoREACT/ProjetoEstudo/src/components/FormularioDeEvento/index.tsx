@@ -30,7 +30,6 @@ function FormularioDeEvento() {
           <Botao>Criar Evento</Botao>
         </div>
       </CampoDeFormulario>
-
     </form>
   )
 }

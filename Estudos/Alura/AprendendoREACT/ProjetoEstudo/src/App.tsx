@@ -1,8 +1,23 @@
 import './App.css'
+import Banner from './components/Banner/index.tsx'
+import CardEvento from './components/CardEvento/index.tsx'
 import FormularioDeEvento from './components/FormularioDeEvento/index.tsx'
+import Tema from './components/Tema/index.tsx'
+
+interface Tema{
+    id: number;
+    nome: string;
+  }
+interface Evento {
+    id: number;
+    capa: string;
+    tema: Tema;
+    data: Date;
+    titulo: string;
+  }
 
 // noreact, componente são FUNÇÔES
-function App() {
+function App() {  
   
   const temas = [
     {
@@ -30,6 +45,16 @@ function App() {
       nome: 'cloud'
     }
   ]
+  
+  const eventos: Evento[] = [
+    {
+      id: 1,
+      capa: '',
+      tema: temas[0],
+      data: new Date(),
+      titulo: 'Mulheres no Front'
+    }
+  ]
 
   return (
     <main>
@@ -37,29 +62,23 @@ function App() {
         <img src="/logo.png" alt="Logo" />
       </header>
 
-      <section>
-        <img src="/banner.png" alt="Banner" />
-      </section>
+      <Banner />
+
       <FormularioDeEvento />
 
-      <section>
-        <Tema temas={0}/>
-      </section>
-      <section>
-        <Tema temas={1}/>
-      </section>
-      <section>
-        <Tema temas={2}/>
-      </section>
-      <section>
-        <Tema temas={3}/>
-      </section>
-      <section>
-        <Tema temas={4}/>
-      </section>
-      <section>
-        <Tema temas={5}/>
-      </section>
+      { temas.map( tema => (
+        
+          <section key={tema.id}>
+            {eventos
+              .filter(evento => evento.tema.id === tema.id)
+              .map(eventoFiltrado => (
+                <CardEvento key={eventoFiltrado.id} evento={eventoFiltrado}/>
+              ))
+            }
+          </section>
+        ) 
+      )
+      }
       
     </main>
   )

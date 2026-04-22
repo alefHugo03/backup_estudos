@@ -13,15 +13,6 @@ header {
   justify-content: center;
 }
 
-section{
-  background: linear-gradient(180deg, #17E489, #091D24);
-  display: flex;
-  justify-content: center; 
-}
-
-section img{
-  max-width: 90%;
-}
 
 
 
