@@ -1,0 +1,12 @@
+.lista-suspensa-form {
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid #4A4949;
+
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 125%;
+    color: #FFFFFF;
+
+    padding: 8px 16px;
+}

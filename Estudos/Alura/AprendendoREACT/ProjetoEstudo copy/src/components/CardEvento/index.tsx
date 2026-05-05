@@ -23,7 +23,7 @@ function CardEvento ({ evento }: CardEventoProps) {
             <img src={evento.capa} alt={evento.titulo}/>
             <div className="corpo">
                 <p className="tag">{evento.tema.nome}</p>
-                <p className='data'>
+                <p>
                     {evento.data.toLocaleDateString('pt-br')}
                 </p>
                 <h4 className="titulo">
